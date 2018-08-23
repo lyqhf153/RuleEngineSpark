@@ -1,4 +1,4 @@
-# RuleEngine
+# RuleEngineSpark
 
 Logic behind this rule engine is to take the rules in json format 
 and apply those rules over the data to search for the signals which 
@@ -30,7 +30,7 @@ and shown in output.
 
 ## Build the project 
 <code>  mvn clean install </code>
-Fat jar **RuleEngine-jar-with-dependencies.jar**  will be created in target folder 
+Fat jar **RuleEngineSpark.jarr**  will be created in target folder 
 
 ## Generate Rule file (rule.json)
 Here Json should be the list of rules where each signal can have multiple rules.
