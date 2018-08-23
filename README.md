@@ -101,12 +101,12 @@ bin/kafka-topics.sh --create \
 --replication-factor 1 --partitions 2 \
 --topic signal-topic
 ```
--List Kafka Topic :-
+- List Kafka Topic :-
 ```javascript
 bin/kafka-topics.sh --list \
    --zookeeper localhost:2181
 ```
--Cosumer from beginning:-
+- Cosumer from beginning:-
 ```javascript
 bin/kafka-console-consumer.sh \
 --bootstrap-server localhost:9092 \
@@ -114,7 +114,7 @@ bin/kafka-console-consumer.sh \
 --from-beginning
 ```
 ```javascript
--Put Data To Topic :-
+- Put Data To Topic :-
 ```javascript
 bin/kafka-console-producer.sh \
 --broker-list localhost:9092 \
