@@ -72,7 +72,7 @@ so the Json will be
 		]
   },
   {
-    "signal": "ATL10",
+    "signal": "ATL3",
     "rule": [
 			{
 				"type": "Integer",
