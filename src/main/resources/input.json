@@ -1,0 +1,11 @@
+{"signal": "ATL1", "value_type": "Integer", "value": "250.12"}
+{"signal": "ATL1", "value_type": "Datetime", "value": "2017-04-10 10:16:12"}
+{"signal": "ATL1", "value_type": "Integer", "value": "10.90"}
+{"signal": "ATL2", "value_type": "String", "value": "LOW"}
+{"signal": "ATL2", "value_type": "String", "value": "HIGH"}
+{"signal": "ATL2", "value_type": "Datetime", "value": "2017-04-10 10:16:55"}
+{"signal": "ATL3", "value_type": "Integer", "value": "46.691"}
+{"signal": "ATL3", "value_type": "Datetime", "value": "2017-04-21 07:55:28"}
+{"signal": "ATL4", "value_type": "String", "value": "LOW"}
+{"signal": "ATL4", "value_type": "String", "value": "LOW"}
+{"signal": "ATL4", "value_type": "Integer", "value": "80.10"}

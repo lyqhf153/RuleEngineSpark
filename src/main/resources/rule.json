@@ -1,0 +1,38 @@
+[
+  {
+    "signal": "ATL1",
+    "rule": [
+      {
+        "type": "Integer",
+        "operator": ">",
+        "value": "240.0"
+      },
+      {
+        "type": "Datetime",
+        "operator": ">",
+        "value": "2017-04-10 10:16:11"
+      }
+    ]
+  },
+  {
+    "signal": "ATL2",
+    "rule": [
+      {
+        "type": "String",
+        "operator": "=",
+        "value": "LOW"
+      }
+    ]
+  },
+  {
+    "signal": "ATL3",
+    "rule": [
+      {
+        "type": "Integer",
+        "operator": "=",
+        "value": "46.691"
+      }
+    ]
+  }
+]
+

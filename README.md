@@ -32,7 +32,7 @@ and shown in output.
 <code>  mvn clean install </code>
 Fat jar **RuleEngine-jar-with-dependencies.jar**  will be created in target folder 
 
-## Generate Rule file
+## Generate Rule file (rule.json)
 Here Json should be the list of rules where each signal can have multiple rules.
 Say for ATL1 we have rules as below
 ***For ATL1*** 
@@ -85,6 +85,58 @@ so the Json will be
 ```
 **Sample rule.json is present in main/resources folder for reference**
 
+
+## Kafka Setup done:-
+- Downlaod latest kafka say **kafka_2.12-2.0.0.tgz** from **https://kafka.apache.org/downloads**
+- Extract it to the folder kafka
+  <code> cd kafka </code>
+- Start Zookeper
+ <code> bin/zookeeper-server-start.sh config/zookeeper.properties </code>
+- Start Kafka Server
+ <code>  bin/kafka-server-start.sh  config/server.properties  </code>
+- Create Kafka Topic
+```javascript
+bin/kafka-topics.sh --create \
+--zookeeper localhost:2181 \
+--replication-factor 1 --partitions 2 \
+--topic signal-topic
+```
+-List Kafka Topic :-
+```javascript
+bin/kafka-topics.sh --list \
+   --zookeeper localhost:2181
+```
+-Cosumer from beginning:-
+```javascript
+bin/kafka-console-consumer.sh \
+--bootstrap-server localhost:9092 \
+--topic signal-topic \
+--from-beginning
+```
+```javascript
+-Put Data To Topic :-
+```javascript
+bin/kafka-console-producer.sh \
+--broker-list localhost:9092 \
+--topic signal-topic
+```
+
+Below is the sample ingested to the kafka topic
+```javascript
+{"signal": "ATL1", "value_type": "Integer", "value": "250.12"}
+{"signal": "ATL1", "value_type": "Datetime", "value": "2017-04-10 10:16:12"}
+{"signal": "ATL1", "value_type": "Integer", "value": "10.90"}
+{"signal": "ATL2", "value_type": "String", "value": "LOW"}
+{"signal": "ATL2", "value_type": "String", "value": "HIGH"}
+{"signal": "ATL2", "value_type": "Datetime", "value": "2017-04-10 10:16:55"}
+{"signal": "ATL3", "value_type": "Integer", "value": "46.691"}
+{"signal": "ATL3", "value_type": "Datetime", "value": "2017-04-21 07:55:28"}
+{"signal": "ATL4", "value_type": "String", "value": "LOW"}
+{"signal": "ATL4", "value_type": "String", "value": "LOW"}
+{"signal": "ATL4", "value_type": "Integer", "value": "80.10"}
+```
+
+
 ## Run the code
 Go to target folder , run below command
 Program takes two argument
@@ -92,14 +144,20 @@ Program takes two argument
 - Rule Json File (**Create the rule.json as per "Generate Rule file" section"**
 
 Syntax
-<code>  java -jar RuleEngine-jar-with-dependencies.jar (**Signal Input Json File**)  (**Rule Json File**) </code>
+<code>  spark-submit  --files (**rule.json Location**) --class (**Job Class Name**)  (**Jar Location**) </code>
 	
 Example
-<code> java -jar RuleEngine-jar-with-dependencies.jar /tmp/raw_data.json  /tmp/rule.json </code>
+<code> spark-submit --files file:////tmp/rule.json --class com.engine.rule.RuleEngineSpark /tmp/RuleEngineSpark.jar
+ </code>
 
 **Output will printed in console**
+- For the above input , Output will be
+  - ATL1 , ATL2 , ATL3
 
 
 ## Improvement can be done
--  more data type can be included
--  more operators can be added for existing data types
+-  more data type can be included.
+-  more operators can be added for existing data types.
+
+
+
