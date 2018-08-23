@@ -138,9 +138,8 @@ Below is the sample ingested to the kafka topic
 
 ## Run the code
 Go to target folder , run below command
-Program takes two argument
-- Signal Input Json File
-- Rule Json File (**Create the rule.json as per "Generate Rule file" section"**
+**Program takes two argument**
+- files : Rule Json File in local file system (**Create the rule.json as per "Generate Rule file" section"**
 
 Syntax
 <code>  spark-submit  --files (**rule.json Location**) --class (**Job Class Name**)  (**Jar Location**) </code>
@@ -154,10 +153,13 @@ Example
   - ATL1 , ATL2 , ATL3
 
 
-## Improvement can be done
+## Improvement can be done (Due to time issue left overs)
 -  more data type can be included.
 -  more operators can be added for existing data types.
+-  take kafka topic as parameter (for the moment hard-coded)
+-  rules can be store in database instead of file , so that we just need to update rule in database.
 -  Test Coverage need to be added Spark Junit Test Suite.
+
 
 
 
