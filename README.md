@@ -113,7 +113,6 @@ bin/kafka-console-consumer.sh \
 --topic signal-topic \
 --from-beginning
 ```
-```javascript
 - Put Data To Topic :-
 ```javascript
 bin/kafka-console-producer.sh \
