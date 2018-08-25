@@ -27,10 +27,6 @@ public class FilterPredicate implements Function<SignalData, Boolean> {
             return false;
         }
 
-        if (rules == null) {
-            return false;
-        }
-
         List<Rule> listOfRulesAsPerDataType = rules.stream()
                 .filter(rule -> rule.getType().equals(signalData.getValueType()))
                 .collect(Collectors.toList());
